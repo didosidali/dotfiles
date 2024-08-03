@@ -27,7 +27,7 @@ promptinit
 # This will set the default prompt to the walters theme
 prompt walters
 
-alias ls='ls --color=auto'
+alias ls='lsd --color=auto'
 PROMPT="%F{red}%n%f%F{blue}@%f%F{green}%m%f %~ $ "
 RPROMPT=""
 
