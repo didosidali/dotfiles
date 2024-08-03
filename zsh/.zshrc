@@ -34,8 +34,7 @@ RPROMPT=""
 alias vim="nvim"
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 
-alias app-det="sh /home/sid/scripts/projects/application-classification.sh"
-alias phd-manu="sh /home/sid/scripts/projects/phd-manuscript.sh"
+source $HOME/pers.zsh
 
 export ZSH="$HOME/.oh-my-zsh/" 
 
