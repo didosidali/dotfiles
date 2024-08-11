@@ -170,5 +170,8 @@ require('lazy').setup({
     },
     {
         'Vimjas/vim-python-pep8-indent'
+    },
+    {
+        'norcalli/nvim-colorizer.lua'
     }
 })

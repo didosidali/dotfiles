@@ -24,6 +24,8 @@ autoload -Uz compinit promptinit
 compinit
 promptinit
 
+autoload -U colors && colors
+
 # This will set the default prompt to the walters theme
 prompt walters
 
@@ -39,8 +41,9 @@ source $HOME/pers.zsh
 export ZSH="$HOME/.oh-my-zsh/" 
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 source "$HOME/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme"
-# source "/home/sid/.oh-my-zsh/custom/themes/agnoster-zsh-theme/agnoster.zsh-theme"
+source "$HOME/.oh-my-zsh/plugins/colored-man-pages/colored-man-pages.plugin.zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -50,5 +53,5 @@ else
   [[ ! -f ~/.config/p10k/p10k.zsh ]] || source ~/.config/p10k/p10k_8.zsh
 fi
 
-
 # ZSH_THEME="agnoster-zsh-theme/agnoster.zsh-theme"
+#
