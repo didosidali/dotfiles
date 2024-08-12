@@ -13,6 +13,7 @@ window#waybar {
   color: white;
   transition-property: background-color;
   transition-duration: 0.5s;
+  font-size: 30px;
 }
 
 window#waybar.hidden {
@@ -307,7 +308,7 @@ label:focus {
 
 #custom-weather {
   font-family: Iosevka Nerd Font;
-  font-size: 19px;
+  font-size: 30px;
   color: @text;
 }
 

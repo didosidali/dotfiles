@@ -4,7 +4,8 @@ gen.setup({
     -- url = "http://localhost:8080/completion",
     --
     -- model = "mistral:instruct", -- The default model to use.
-    model = "llama3.1", -- The default model to use.
+    -- model = "llama3.1", -- The default model to use.
+    model = "llama3.1:70b-instruct-q3_K_S",
     host = "localhost", -- The host running the Ollama service.
     port = "11434", -- The port on which the Ollama service is listening.
     display_mode = "float", -- The display mode. Can be "float" or "split".
