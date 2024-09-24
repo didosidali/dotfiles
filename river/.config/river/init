@@ -1,0 +1,141 @@
+#!/bin/sh
+
+# This is the example configuration file for river.
+#
+# If you wish to edit this, you will probably want to copy it to
+# $XDG_CONFIG_HOME/river/init or $HOME/.config/river/init first.
+#
+# See the river(1), riverctl(1), and rivertile(1) man pages for complete
+# documentation.
+
+# Note: the "$mod" modifier is also known as Logo, GUI, Windows, Mod4, etc.
+
+# $mod+Shift+Return to start an instance of kitty
+TERMINAL=kitty
+mod=Mod4
+
+riverctl map normal $mod Return spawn $TERMINAL
+riverctl map -repeat normal $mod D spawn launcher
+
+# $mod+Q to close the focused view
+riverctl map normal $mod Q close
+
+# Mod+E to exit river
+riverctl map normal $mod+Shift E exit
+
+# Mod+J and Mod+K to focus the next/previous view in the layout stack
+riverctl map normal $mod J focus-view next
+riverctl map normal $mod K focus-view previous
+
+# Mod+Shift+J and Mod+Shift+K to swap the focused view with the next/previous
+# view in the layout stack
+riverctl map normal $mod+Shift J swap next
+riverctl map normal $mod+Shift K swap previous
+
+# Mod+Period and Mod+Comma to focus the next/previous output
+riverctl map normal $mod Period focus-output next
+riverctl map normal $mod Comma focus-output previous
+
+# Mod+Shift+{Period,Comma} to send the focused view to the next/previous output
+riverctl map normal $mod+Shift Period send-to-output next
+riverctl map normal $mod+Shift Comma send-to-output previous
+
+# Mod+? to bump the focused view to the top of the layout stack
+# riverctl map normal $mod+Shift Return zoom
+
+# Mod+H and Mod+L to decrease/increase the main ratio of rivertile(1)
+riverctl map normal $mod H send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map normal $mod L send-layout-cmd rivertile "main-ratio +0.05"
+
+# Mod+Shift+H and Mod+Shift+L to increment/decrement the main count of rivertile(1)
+riverctl map normal $mod+Shift H send-layout-cmd rivertile "main-count +1"
+riverctl map normal $mod+Shift L send-layout-cmd rivertile "main-count -1"
+
+# Mod+Alt+{H,J,K,L} to move views
+riverctl map normal $mod+Mod1 H move left 100
+riverctl map normal $mod+Mod1 J move down 100
+riverctl map normal $mod+Mod1 K move up 100
+riverctl map normal $mod+Mod1 L move right 100
+
+# Mod+Alt+Control+{H,J,K,L} to snap views to screen edges
+riverctl map normal $mod+Mod1+Control H snap left
+riverctl map normal $mod+Mod1+Control J snap down
+riverctl map normal $mod+Mod1+Control K snap up
+riverctl map normal $mod+Mod1+Control L snap right
+
+# Mod+Alt+Shif+{H,J,K,L} to resize views
+riverctl map normal $mod+Mod1+Shift H resize horizontal -100
+riverctl map normal $mod+Mod1+Shift J resize vertical 100
+riverctl map normal $mod+Mod1+Shift K resize vertical -100
+riverctl map normal $mod+Mod1+Shift L resize horizontal 100
+
+# Mod + Left Mouse Button to move views
+riverctl map-pointer normal $mod BTN_LEFT move-view
+
+# Mod + Right Mouse Button to resize views
+riverctl map-pointer normal $mod BTN_RIGHT resize-view
+# Tags
+for i in $(seq 1 9)
+do
+    tags=$((1 << ($i - 1)))
+
+    # Mod+[1-9] to focus tag [0-8]
+    riverctl map normal $mod $i set-focused-tags $tags
+
+    # Mod+Shift+[1-9] to tag focused view with tag [0-8]
+    riverctl map normal $mod+Shift $i set-view-tags $tags
+
+    # Mod+Ctrl+[1-9] to toggle focus of tag [0-8]
+    riverctl map normal $mod+Control $i toggle-focused-tags $tags
+
+    # Mod+Shift+Ctrl+[1-9] to toggle tag [0-8] of focused view
+    riverctl map normal $mod+Shift+Control $i toggle-view-tags $tags
+done
+
+# Mod+0 to focus all tags
+# Mod+Shift+0 to tag focused view with all tags
+all_tags=$(((1 << 32) - 1))
+riverctl map normal $mod 0 set-focused-tags $all_tags
+riverctl map normal $mod+Shift 0 set-view-tags $all_tags
+
+# Mod+F to toggle fullscreen
+riverctl map -repeat normal $mod F toggle-fullscreen
+
+
+riverctl map -repeat normal $mod P "grim screenshot.png"
+
+# Keyboard config
+riverctl keyboard-layout -variant "colemak_dh_ortho," -options "grp:win_space_toggle" "us,ara"
+
+
+
+# At start
+riverctl spawn "waybar"
+# riverctl spawn rivertile
+# riverctl output-layout rivertile
+riverctl spawn swww-daemon
+riverctl spawn "swww img \"Desktop-Backgrounds/1.jpg\""
+
+
+# Set background and border color
+riverctl background-color 0x002b36
+riverctl border-color-focused 0x56B6C2
+riverctl border-color-unfocused 0x333a3b
+riverctl border-width 1
+
+# mouse hover changes focused window
+riverctl focus-follows-cursor normal
+
+# Set keyboard repeat rate
+riverctl set-repeat 50 275 
+
+# Make all views with an app-id that starts with "float" and title "foo" start floating.
+riverctl rule-add -app-id 'float*' -title 'foo' float 
+
+# Make all views with app-id "bar" and any title use client-side decorations
+riverctl rule-add ssd
+
+# Set the default layout generator to be rivertile and start it.
+# River will send the process group of the init executable SIGTERM on exit.
+riverctl default-layout bsp-layout
+river-bsp-layout --inner-gap 0 --outer-gap 0 --split-perc 0.5 &

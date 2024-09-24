@@ -46,3 +46,6 @@ vim.o.timeoutlen = 300
 
 vim.o.completeopt = 'menuone,noselect'
 
+vim.cmd [[ autocmd BufRead,BufNewFile *.org set filetype=org ]]
+vim.cmd [[ autocmd BufRead,BufNewFile *.txt set filetype=text ]]
+vim.cmd [[ autocmd BufRead,BufNewFile *.eml set filetype=email ]]

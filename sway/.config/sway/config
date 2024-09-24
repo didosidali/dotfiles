@@ -19,13 +19,14 @@ set $term kitty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | wmenu | xargs swaymsg exec --
-set $menu wofi --show run | xargs swaymsg exec
+# set $menu wofi --show run | xargs swaymsg exec
 set $drun wofi -I --show drun | xargs swaymsg exec
+set $menu tofi-drun --drun-launch=true
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Desktop-Backgrounds/1.jpg fill
+# output * bg ~/Desktop-Backgrounds/1.jpg fill
 #
 # Example configuration:
 #
@@ -180,6 +181,8 @@ output * bg ~/Desktop-Backgrounds/1.jpg fill
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+plus scratchpad show
 #
+# screenshut
+    bindsym $mod+p exec grim screenshot.png
 # Resizing containers:
 #
 mode "resize" {
@@ -242,7 +245,12 @@ titlebar_border_thickness 0
 
 # exec --no-startup-id /usr/lib/xdg-desktop-portal -r
 
-focus_follows_mouse no
+focus_follows_mouse yes
 
+
+exec swww-daemon
+exec swww img "Desktop-Backgrounds/1.jpg"
+
+exec swaync
 
 include /etc/sway/config.d/*

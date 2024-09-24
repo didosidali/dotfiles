@@ -66,7 +66,12 @@ local servers = {
     },
   },
   ltex={
+    filetypes={"bibtex", "context", "context.tex", "html", "latex", "markdown", "org", "restructuredtext", "rsweave", "email", "text", "mail"},
+    settings={
       checkFrequency="save",
+      enabled={"bibtex", "context", "context.tex", "html", "latex", "markdown", "org", "restructuredtext", "rsweave", "email", "text", "mail"},
+      language="auto",
+    }
   },
   zls = {},
   clangd = {},
