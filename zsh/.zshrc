@@ -36,7 +36,7 @@ RPROMPT=""
 alias vim="nvim"
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 
-source $HOME/pers.zsh
+# source $HOME/pers.zsh
 
 export ZSH="$HOME/.oh-my-zsh/" 
 

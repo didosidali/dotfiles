@@ -16,6 +16,7 @@ mod=Mod4
 
 riverctl map normal $mod Return spawn $TERMINAL
 riverctl map -repeat normal $mod D spawn launcher
+riverctl map -repeat normal $mod+Control L spawn waylock
 
 # $mod+Q to close the focused view
 riverctl map normal $mod Q close
@@ -98,6 +99,36 @@ all_tags=$(((1 << 32) - 1))
 riverctl map normal $mod 0 set-focused-tags $all_tags
 riverctl map normal $mod+Shift 0 set-view-tags $all_tags
 
+i=10
+tags=$((1 << ($i - 1)))
+
+# Mod+[1-9] to focus tag [0-8]
+riverctl map normal $mod minus set-focused-tags $tags
+
+# Mod+Shift+[1-9] to tag focused view with tag [0-8]
+riverctl map normal $mod+Shift minus set-view-tags $tags
+
+# Mod+Ctrl+[1-9] to toggle focus of tag [0-8]
+riverctl map normal $mod+Control minus toggle-focused-tags $tags
+
+# Mod+Shift+Ctrl+[1-9] to toggle tag [0-8] of focused view
+riverctl map normal $mod+Shift+Control minus toggle-view-tags $tags
+
+i=11
+tags=$((1 << ($i - 1)))
+
+# Mod+[1-9] to focus tag [0-8]
+riverctl map normal $mod equal set-focused-tags $tags
+
+# Mod+Shift+[1-9] to tag focused view with tag [0-8]
+riverctl map normal $mod+Shift equal set-view-tags $tags
+
+# Mod+Ctrl+[1-9] to toggle focus of tag [0-8]
+riverctl map normal $mod+Control equal toggle-focused-tags $tags
+
+# Mod+Shift+Ctrl+[1-9] to toggle tag [0-8] of focused view
+riverctl map normal $mod+Shift+Control equal toggle-view-tags $tags
+
 # Mod+F to toggle fullscreen
 riverctl map -repeat normal $mod F toggle-fullscreen
 
@@ -115,6 +146,7 @@ riverctl spawn "waybar"
 # riverctl output-layout rivertile
 riverctl spawn swww-daemon
 riverctl spawn "swww img \"Desktop-Backgrounds/1.jpg\""
+riverctl spawn swaync
 
 
 # Set background and border color
