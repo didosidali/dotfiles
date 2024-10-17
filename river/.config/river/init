@@ -14,6 +14,8 @@
 TERMINAL=kitty
 mod=Mod4
 
+systemctl --user start pipewire xdg-desktop-portal xdg-desktop-portal-wlr wireplumber
+
 riverctl map normal $mod Return spawn $TERMINAL
 riverctl map -repeat normal $mod D spawn launcher
 riverctl map -repeat normal $mod+Control L spawn waylock
@@ -138,14 +140,12 @@ riverctl map -repeat normal $mod P "grim screenshot.png"
 # Keyboard config
 riverctl keyboard-layout -variant "colemak_dh_ortho," -options "grp:win_space_toggle" "us,ara"
 
-
-
 # At start
 riverctl spawn "waybar"
 # riverctl spawn rivertile
 # riverctl output-layout rivertile
 riverctl spawn swww-daemon
-riverctl spawn "swww img \"Desktop-Backgrounds/1.jpg\""
+riverctl spawn "swww img \"Desktop-Backgrounds/1.png\""
 riverctl spawn swaync
 
 

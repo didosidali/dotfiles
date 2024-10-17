@@ -1,0 +1,50 @@
+# didousidali@gmail.com account
+IMAPAccount didousidali@gmail.com
+Host imap.gmail.com
+User didousidali@gmail.com
+PassCmd "pass didousidali@gmail.com" 
+TLSType IMAPS
+
+IMAPStore didousidali@gmail.com-remote
+Account didousidali@gmail.com
+
+MaildirStore didousidali@gmail.com-local
+SubFolders Verbatim
+Path /home/sid/.local/share/mail/didousidali@gmail.com/
+Inbox /home/sid/.local/share/mail/didousidali@gmail.com/INBOX
+# Flatten .
+
+Channel didousidali@gmail.com
+Far :didousidali@gmail.com-remote:
+Near :didousidali@gmail.com-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+
+# University account
+IMAPAccount sid-ali.hamideche@etudiant.univ-rennes.fr
+Host partage.univ-rennes.fr 
+User sid-ali.hamideche@etudiant.univ-rennes.fr
+PassCmd "pass Univ/sid-ali.hamideche@etudiant.univ-rennes.fr"  
+TLSType IMAPS
+
+IMAPStore sid-ali.hamideche@etudiant.univ-rennes.fr-remote
+Account sid-ali.hamideche@etudiant.univ-rennes.fr
+
+MaildirStore sid-ali.hamideche@etudiant.univ-rennes.fr-local
+SubFolders Verbatim
+Path /home/sid/.local/share/mail/sid-ali.hamideche@etudiant.univ-rennes.fr/
+Inbox /home/sid/.local/share/mail/sid-ali.hamideche@etudiant.univ-rennes.fr/INBOX
+# Flatten .
+
+Channel sid-ali.hamideche@etudiant.univ-rennes.fr
+Far :sid-ali.hamideche@etudiant.univ-rennes.fr-remote:
+Near :sid-ali.hamideche@etudiant.univ-rennes.fr-local:
+Patterns * 
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+

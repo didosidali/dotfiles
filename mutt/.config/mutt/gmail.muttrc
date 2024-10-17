@@ -1,0 +1,15 @@
+# vim: filetype=neomuttrc
+# Gmail account-specific settings
+set imap_user = "didousidali@gmail.com"
+set imap_pass = "pass didousidali@gmail.com"
+set folder = "~/.local/share/mail/didousidali@gmail.com"
+set spoolfile = "~/.local/share/mail/didousidali@gmail.com/INBOX"
+set record = "~/.local/share/mail/didousidali@gmail.com/Sent Mail"
+set postponed = "~/.local/share/mail/didousidali@gmail.com/[Gmail]/Drafts"
+set from = "didousidali@gmail.com"
+set realname = "Sid Ali Hamidecheche"
+set smtp_url = "smtp://didousidali@gmail.com@smtp.gmail.com:587"
+set smtp_pass = "pass didousidali@gmail.com"
+
+# Mailboxes to display
+mailboxes ~/.local/share/mail/didousidali@gmail.com/INBOX "~/.local/share/mail/didousidali@gmail.com/[Gmail]/Sent Mail" ~/.local/share/mail/didousidali@gmail.com/[Gmail]/Drafts

@@ -34,6 +34,8 @@ require('nvim-treesitter.configs').setup {
         ['if'] = '@function.inner',
         ['ac'] = '@class.outer',
         ['ic'] = '@class.inner',
+        ["ib"] = { query = "@code_cell.inner", desc = "in block" },
+                ["ab"] = { query = "@code_cell.outer", desc = "around block" },
       },
     },
     move = {
@@ -42,6 +44,7 @@ require('nvim-treesitter.configs').setup {
       goto_next_start = {
         [']m'] = '@function.outer',
         [']]'] = '@class.outer',
+        [']b'] = { query = "@code_cell.inner", desc = "next code block" },
       },
       goto_next_end = {
         [']M'] = '@function.outer',
@@ -50,6 +53,7 @@ require('nvim-treesitter.configs').setup {
       goto_previous_start = {
         ['[m'] = '@function.outer',
         ['[['] = '@class.outer',
+        ["[b"] = { query = "@code_cell.inner", desc = "previous code block" },
       },
       goto_previous_end = {
         ['[M'] = '@function.outer',
@@ -60,10 +64,13 @@ require('nvim-treesitter.configs').setup {
       enable = true,
       swap_next = {
         ['<leader>a'] = '@parameter.inner',
+        ["<leader>sbl"] = "@code_cell.outer",
       },
       swap_previous = {
         ['<leader>A'] = '@parameter.inner',
+        ["<leader>sbh"] = "@code_cell.outer",
       },
     },
   },
 }
+

@@ -1,0 +1,15 @@
+# vim: filetype=neomuttrc
+# University account-specific settings
+set imap_user = "sid-ali.hamideche@etudiant.univ-rennes.fr"
+set imap_pass = "pass Univ/sid-ali.hamideche@etudiant.univ-rennes.fr"
+set folder = "~/.local/share/mail/sid-ali.hamideche@etudiant.univ-rennes.fr"
+set spoolfile = "~/.local/share/mail/sid-ali.hamideche@etudiant.univ-rennes.fr/INBOX"
+set record = "~/.local/share/mail/sid-ali.hamideche@etudiant.univ-rennes.fr/Sent Mail"
+set postponed = "~/.local/share/mail/sid-ali.hamideche@etudiant.univ-rennes.fr/Drafts"
+set from = "sid-ali.hamideche@etudiant.univ-rennes.fr"
+set realname = "Sid Ali Hamidecheche"
+set smtp_url = "smtp://sid-ali.hamideche@etudiant.univ-rennes.fr@smtp.gmail.com:587"
+set smtp_pass = "pass Univ/sid-ali.hamideche@etudiant.univ-rennes.fr"
+
+# Mailboxes to display
+mailboxes ~/.local/share/mail/sid-ali.hamideche@etudiant.univ-rennes.fr/INBOX ~/.local/share/mail/sid-ali.hamideche@etudiant.univ-rennes.fr/Sent ~/.local/share/mail/sid-ali.hamideche@etudiant.univ-rennes.fr/Drafts
