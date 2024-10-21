@@ -12,6 +12,18 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
+    {
+      "vhyrro/luarocks.nvim",
+      dependencies = {
+        "MunifTanjim/nui.nvim",
+        "nvim-neotest/nvim-nio",
+        "nvim-neorg/lua-utils.nvim",
+        "nvim-lua/plenary.nvim",
+        "pysan3/pathlib.nvim",
+      },
+      priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
+      config = true,
+    },
     'tpope/vim-fugitive',
     'tpope/vim-rhubarb',
     'tpope/vim-sleuth',
@@ -209,4 +221,26 @@ require('lazy').setup({
             vim.g.molten_output_win_max_height = 20
         end,
     },
+    {
+      "nvim-neorg/neorg",
+      dependencies = { "luarocks.nvim" },
+      lazy = false,
+      version = "*",
+      config = function ()
+        require("neorg").setup {
+          load = {
+            ["core.defaults"] = {},
+            ["core.concealer"] = {},
+            ["core.dirman"] = {
+              config = {
+                workspaces = {
+                  notes = "~/notes",
+                },
+                default_workspace = "notes",
+              },
+            },
+          }
+        }
+      end
+    }
 })

@@ -1,7 +1,7 @@
 ## vim: filetype=neomuttrc
 # NeoMutt global settings
 set editor = "nvim +':set textwidth=0'"
-source /usr/share/mutt-wizard/mutt-wizard.muttrc
+source ~/.config/mutt/default.muttrc
 set mbox_type = Maildir
 set folder = "~/.local/share/mail"
 set spoolfile = "~/.local/share/mail/didousidali@gmail.com/INBOX"  # Default to Gmail inbox
