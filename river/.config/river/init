@@ -17,7 +17,7 @@ mod=Mod4
 systemctl --user start pipewire xdg-desktop-portal xdg-desktop-portal-wlr wireplumber
 
 riverctl map normal $mod Return spawn $TERMINAL
-riverctl map -repeat normal $mod D spawn tofi-drun --drun-launch=true
+riverctl map -repeat normal $mod D spawn "tofi-drun --drun-launch=true"
 riverctl map -repeat normal $mod+Control L spawn waylock
 
 # $mod+Q to close the focused view
