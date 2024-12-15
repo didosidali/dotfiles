@@ -134,8 +134,8 @@ riverctl map normal $mod+Shift+Control equal toggle-view-tags $tags
 # Mod+F to toggle fullscreen
 riverctl map -repeat normal $mod F toggle-fullscreen
 
-
-riverctl map -repeat normal $mod P "grim screenshot.png"
+# riverctl map -repeat normal $mod P spawn "grim screenshot.png"
+riverctl map -repeat normal $mod P spawn "slurp | grim -t png -g - $HOME/screenshots/$(date +'Area-Screenshot-%Y-%m-%d-%H%M%S.png')"
 
 # Keyboard config
 riverctl keyboard-layout -variant "colemak_dh_ortho," -options "grp:win_space_toggle" "us,ara"

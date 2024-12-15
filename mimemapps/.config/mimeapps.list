@@ -51,3 +51,4 @@ image/jpeg=feh.desktop
 application/x-shellscript=userapp-JourneyIntoSissyhood.sh-0UUQH2.desktop
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
 video/mkv=mpv
+x-scheme-handler/mpv=mpv-handler.desktop

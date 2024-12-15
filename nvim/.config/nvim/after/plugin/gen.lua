@@ -37,9 +37,16 @@ gen.prompts['Correct_Accademic'] = {
   replace = true
 }
 
-local prompt = "Elaborate the following text. Correct the false information if there is any. Add missing information about the topic. Stay on the topic while adding information do not elaborate on the technologies that came after that as a newer variant of the the method described in the topic even if closely related. The added information should exactly be about the method described in the topic like adding some missing information, adding some research on the method, or adding some example use cases of the method"
+prompt = "Elaborate the following text. Correct the false information if there is any. Add missing information about the topic. Stay on the topic while adding information do not elaborate on the technologies that came after that as a newer variant of the the method described in the topic even if closely related. The added information should exactly be about the method described in the topic like adding some missing information, adding some research on the method, or adding some example use cases of the method"
 
 gen.prompts['Elaborate_staying_on_topic'] = {
+  prompt = prompt .. ":\n$text",
+  replace = true
+}
+
+prompt = "Make it shorter and more adequate for a slide presentation. You can also heighlight improtant words using bold, italic or colors"
+
+gen.prompts['for_slide'] = {
   prompt = prompt .. ":\n$text",
   replace = true
 }

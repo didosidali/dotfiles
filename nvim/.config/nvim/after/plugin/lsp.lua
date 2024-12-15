@@ -66,16 +66,16 @@ local servers = {
     },
   },
   ltex={
-    filetypes={"bibtex", "context", "context.tex", "html", "latex", "markdown", "org", "restructuredtext", "rsweave", "email", "text", "mail"},
+    filetypes={"bibtex", "context", "context.tex", "html", "latex", "markdown", "org", "restructuredtext", "rsweave", "email", "text", "mail", "tex"},
     settings={
       checkFrequency="save",
-      enabled={"bibtex", "context", "context.tex", "html", "latex", "markdown", "org", "restructuredtext", "rsweave", "email", "text", "mail"},
+      enabled={"bibtex", "context", "context.tex", "html", "latex", "markdown", "org", "restructuredtext", "rsweave", "email", "text", "mail", "tex"},
       language="auto",
     }
   },
   zls = {},
   clangd = {},
-  -- rust_analyzer = {},
+  rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
   lua_ls = {

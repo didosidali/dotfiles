@@ -53,5 +53,7 @@ else
   [[ ! -f ~/.config/p10k/p10k.zsh ]] || source ~/.config/p10k/p10k_8.zsh
 fi
 
+export MANPAGER='nvim +Man!'
+
 # ZSH_THEME="agnoster-zsh-theme/agnoster.zsh-theme"
 #

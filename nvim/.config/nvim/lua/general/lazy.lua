@@ -145,7 +145,7 @@ require('lazy').setup({
     {
         "jose-elias-alvarez/null-ls.nvim",
     },
-    { 
+    {
         "lervag/vimtex",
         lazy = false,
         init = function()
@@ -155,7 +155,7 @@ require('lazy').setup({
             -- vim.g.vimtex_view_general_options = [[--unique file:@pdf\#src:@line@tex]]
             vim.g.vimtex_view_general_options = [[-x "nvr --remote +%{line} %{input}" ${@:2}]]
             vim.g.vimtex_quickfix_enabled = 1
-            vim.g.vimtex_syntax_enabled = 1
+            vim.g.vimtex_syntax_enabled = 0
             vim.g.vimtex_quickfix_mode = 0
             vim.g.vimtex_compiler_progname = 'nvr'
         end,
