@@ -9,6 +9,11 @@
 # documentation.
 
 # Note: the "$mod" modifier is also known as Logo, GUI, Windows, Mod4, etc.
+#
+
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
+systemctl --user restart xdg-desktop-portal
 
 # $mod+Shift+Return to start an instance of kitty
 TERMINAL=kitty

@@ -61,7 +61,6 @@ bind pager,browser gg top-page
 bind pager,browser G bottom-page
 bind index,pager,browser d half-down
 bind index,pager,browser u half-up
-bind index,pager S sync-mailbox
 bind index,pager R group-reply
 bind index \031 previous-undeleted	# Mouse wheel
 bind index \005 next-undeleted		# Mouse wheel
@@ -128,6 +127,8 @@ color index_subject brightcyan black "~N"
 color index brightyellow blue "~T"
 color index_author brightred blue "~T"
 color index_subject brightcyan blue "~T"
+
+macro index S "<shell-escape>mbsync -a<enter><shell-escape>notmuch new<enter>" "Sync email"
 
 # Other colors and aesthetic settings:
 mono bold bold

@@ -57,3 +57,14 @@ export MANPAGER='nvim +Man!'
 
 # ZSH_THEME="agnoster-zsh-theme/agnoster.zsh-theme"
 #
+# vi mode
+bindkey -v
+
+# Yank to the system clipboard
+function vi-yank-xclip {
+    zle vi-yank
+   echo "$CUTBUFFER" | wl-copy
+}
+
+zle -N vi-yank-xclip
+bindkey -M vicmd 'y' vi-yank-xclip

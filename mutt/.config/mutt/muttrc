@@ -11,8 +11,8 @@ set imap_idle = yes
 set mail_check = 60  # Check for new mail in non-IDLE folders every 60 seconds
 
 # Account switching keybindings
-macro index G "<enter-command>source ~/.config/mutt/gmail.muttrc<enter>" "Switch to Gmail account"
-macro index U "<enter-command>source ~/.config/mutt/univ.muttrc<enter>" "Switch to University account"
+macro index,pager G "<sync-mailbox><enter-command>source ~/.config/mutt/gmail.muttrc<enter><change-folder>!<enter>;<check-stats>" "Switch to Gmail account"
+macro index,pager U "<sync-mailbox><enter-command>source ~/.config/mutt/univ.muttrc<enter><change-folder>!<enter>;<check-stats>" "Switch to University account"
 
 # Default to Gmail on startup
 source ~/.config/mutt/gmail.muttrc

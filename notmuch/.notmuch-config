@@ -1,0 +1,14 @@
+[database]
+path=/home/sid/.local/share/mail
+[user]
+name=sid
+primary_email=didousidali@gmail.com
+[new]
+tags=unread;inbox;
+ignore=
+[search]
+exclude_tags=deleted;spam;
+[maildir]
+synchronize_flags=true
+[crypto]
+gpg_path=gpg
