@@ -7,7 +7,7 @@ set spoolfile = "~/.local/share/mail/didousidali@gmail.com/INBOX"
 set record = "~/.local/share/mail/didousidali@gmail.com/Sent Mail"
 set postponed = "~/.local/share/mail/didousidali@gmail.com/[Gmail]/Drafts"
 set from = "didousidali@gmail.com"
-set realname = "Sid Ali Hamidecheche"
+set realname = "Sid Ali Hamideche"
 # set smtp_url = "smtp://didousidali@gmail.com@smtp.gmail.com:587"
 # set smtp_pass = "pass didousidali@gmail.com"
 

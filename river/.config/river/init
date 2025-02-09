@@ -11,10 +11,8 @@
 # Note: the "$mod" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 #
 
-systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP 
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
-systemctl --user restart xdg-desktop-portal
-
 # $mod+Shift+Return to start an instance of kitty
 TERMINAL=kitty
 mod=Mod4
@@ -150,7 +148,7 @@ riverctl spawn "waybar"
 # riverctl spawn rivertile
 # riverctl output-layout rivertile
 riverctl spawn swww-daemon
-riverctl spawn "swww img \"Desktop-Backgrounds/1.png\""
+riverctl spawn "swww img \"Desktop-Backgrounds/2.jpg\""
 riverctl spawn swaync
 
 
@@ -176,3 +174,4 @@ riverctl rule-add ssd
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout bsp-layout
 river-bsp-layout --inner-gap 0 --outer-gap 0 --split-perc 0.5 &
+echo "DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS" > ~/.dbus-environment

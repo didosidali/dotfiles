@@ -1,9 +1,12 @@
 [Unit]
 Description=Mailbox synchronization service
+After=default.target
 
 [Service]
-Type=oneshot
+Type=simple
+EnvironmentFile=%h/.dbus-environment
 ExecStart=%h/.local/bin/new_emails.sh
+StandardOutput=null
 
-[Install]
-WantedBy=default.target
+# [Install]
+# WantedBy=default.target

@@ -1,5 +1,6 @@
 #!/bin/bash
-mbsync -Va
+mbsync -Va #1>/dev/null 2>&1 &
+
 MAILDIR="$HOME/.local/share/mail/*/"
 PROCESSED_FILE="$HOME/.cache/processed_emails.txt"
 

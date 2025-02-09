@@ -1,0 +1,9 @@
+[Unit]
+Description=Sync Google Calendar and Send Notifications
+After=default.target
+
+[Service]
+Type=simple
+EnvironmentFile=%h/.dbus-environment
+ExecStart=%h/.local/bin/vdirsyncer_sync_notify.sh
+StandardOutput=null

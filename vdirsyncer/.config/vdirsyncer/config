@@ -1,0 +1,18 @@
+[general]
+status_path = "~/.vdirsyncer/status/"
+
+[pair google_calendar]
+a = "google_remote"
+b = "local_calendar"
+collections = ["from a"]
+
+[storage google_remote]
+type = "caldav"
+url = "https://apidata.googleusercontent.com/caldav/v2/YOUR_EMAIL/events"
+username = "didousidali@gmail.com"
+password = "pass didousidali@gmail.com"  # Use App Password if 2FA is enabled
+
+[storage local_calendar]
+type = "filesystem"
+path = "~/.calendars/"
+fileext = ".ics"

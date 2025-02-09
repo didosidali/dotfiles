@@ -1,8 +1,9 @@
 [database]
 path=/home/sid/.local/share/mail
 [user]
-name=sid
+name=Sid Ali Hamideche
 primary_email=didousidali@gmail.com
+other_email=sid-ali.hamideche@etudiant.univ-rennes.fr
 [new]
 tags=unread;inbox;
 ignore=
