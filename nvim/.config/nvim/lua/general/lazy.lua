@@ -75,20 +75,20 @@ require('lazy').setup({
             end,
         },
     },
-    -- {
-    --     'navarasu/onedark.nvim',
-    --     priority = 1000,
-    --     config = function()
-    --         vim.cmd.colorscheme 'onedark'
-    --     end,
-    -- },
     {
-        'rose-pine/neovim',
-	as = 'rose-pine',
-	config = function()
-	        vim.cmd('colorscheme rose-pine')
-	end
+        'navarasu/onedark.nvim',
+        priority = 1000,
+        config = function()
+            vim.cmd.colorscheme 'onedark'
+        end,
     },
+    -- {
+    --     'rose-pine/neovim',
+    --     as = 'rose-pine',
+    --     config = function()
+    --             vim.cmd('colorscheme rose-pine')
+    --     end
+    -- },
     {
         'nvim-lualine/lualine.nvim',
         opts = {

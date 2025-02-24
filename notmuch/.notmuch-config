@@ -5,7 +5,7 @@ name=Sid Ali Hamideche
 primary_email=didousidali@gmail.com
 other_email=sid-ali.hamideche@etudiant.univ-rennes.fr
 [new]
-tags=unread;inbox;
+tags=new;unread;inbox;
 ignore=
 [search]
 exclude_tags=deleted;spam;

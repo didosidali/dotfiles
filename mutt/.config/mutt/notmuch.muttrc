@@ -1,0 +1,3 @@
+set virtual_spoolfile=yes
+set nm_default_url="notmuch:///$HOME/.local/share/mail"
+source $HOME/.mailboxes

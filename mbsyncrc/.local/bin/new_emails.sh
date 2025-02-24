@@ -23,3 +23,10 @@ for MAIL_ACCOUNT in $MAILDIR; do
         echo "$(basename "$email_file")" >> "$PROCESSED_FILE"
     done
 done
+
+notmuch new
+# retag all "new" messages "inbox" and "unread"
+notmuch tag +inbox +unread -- tag:new
+# tag all messages from "me" as sent and remove tags inbox and unread
+notmuch tag -new -inbox +sent -- from:didousidali@gmail.com
+

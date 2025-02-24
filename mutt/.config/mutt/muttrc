@@ -4,7 +4,7 @@ set editor = "nvim +':set textwidth=0'"
 source ~/.config/mutt/default.muttrc
 set mbox_type = Maildir
 set folder = "~/.local/share/mail"
-set spoolfile = "~/.local/share/mail/didousidali@gmail.com/INBOX"  # Default to Gmail inbox
+# set spoolfile = "~/.local/share/mail/didousidali@gmail.com/INBOX"  # Default to Gmail inbox
 
 # Enable IMAP IDLE
 set imap_idle = yes
@@ -13,6 +13,9 @@ set mail_check = 60  # Check for new mail in non-IDLE folders every 60 seconds
 # Account switching keybindings
 macro index,pager G "<sync-mailbox><enter-command>source ~/.config/mutt/gmail.muttrc<enter><change-folder>!<enter>;<check-stats>" "Switch to Gmail account"
 macro index,pager U "<sync-mailbox><enter-command>source ~/.config/mutt/univ.muttrc<enter><change-folder>!<enter>;<check-stats>" "Switch to University account"
+macro index,pager N "<sync-mailbox><enter-command>source ~/.config/mutt/notmuch.muttrc<enter><change-folder>!<enter>;<check-stats>" "Switch to Notmuch"
+
+
 
 # Default to Gmail on startup
-source ~/.config/mutt/gmail.muttrc
+source ~/.config/mutt/notmuch.muttrc
