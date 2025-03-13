@@ -29,6 +29,8 @@ auto_view application/pgp-encrypted
 #set display_filter = "tac | sed '/\\\[-- Autoview/,+1d' | tac" # Suppress autoview messages.
 alternative_order text/html text/plain text/enriched
 
+set implicit_autoview
+
 bind index,pager i noop
 bind index,pager g noop
 bind index \Cf noop

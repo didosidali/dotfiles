@@ -1,7 +1,6 @@
-text/html;  w3m -I %{charset} -T text/html -cols 140 -o display_link_number=1 -dump; copiousoutput
 text/html; setsid -f xdg-open %s ; nametemplate=%s.html
+text/html;  w3m -I %{charset} -T text/html -cols 140 -o display_link_number=1 -o display_image=true -o auto_image=true -dump; nametemplate=%s.html; copiousoutput
 text/plain; vim %s ;
-# text/html; w3m -I %{charset} -T text/html -dump; nametemplate=%s.html; copiousoutput;
 image/*; kitty icat %s ;
 image/*; setsid -f xdg-open %s ;
 video/*; setsid mpv --quiet %s &; copiousoutput

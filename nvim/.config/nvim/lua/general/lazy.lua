@@ -162,14 +162,6 @@ require('lazy').setup({
     {
         'pocco81/true-zen.nvim',
     },
-    -- {
-    --     'rhysd/vim-grammarous',
-    --     config = function()
-    --         vim.keymap.set("n", "<leader>x", "<Plug>(grammarous-close-info-window)")
-    --         vim.keymap.set("n", "<c-n>", "<Plug>(grammarous-move-to-next-error)")
-    --         vim.keymap.set("n", "<c-p>", "<Plug>(grammarous-move-to-previous-error)")
-    --     end,
-    -- },
     {
 	'nvim-treesitter/playground'
     },
@@ -196,7 +188,6 @@ require('lazy').setup({
       },
       ft = {"quarto", "markdown"},
     },
-
     {
         '3rd/image.nvim',
         config = function()
