@@ -13,16 +13,16 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
     {
-      "vhyrro/luarocks.nvim",
-      dependencies = {
-        "MunifTanjim/nui.nvim",
-        "nvim-neotest/nvim-nio",
-        "nvim-neorg/lua-utils.nvim",
-        "nvim-lua/plenary.nvim",
-        "pysan3/pathlib.nvim",
-      },
-      priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
-      config = true,
+        "vhyrro/luarocks.nvim",
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "nvim-neotest/nvim-nio",
+            "nvim-neorg/lua-utils.nvim",
+            "nvim-lua/plenary.nvim",
+            "pysan3/pathlib.nvim",
+        },
+        priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
+        config = true,
     },
     'tpope/vim-fugitive',
     'tpope/vim-rhubarb',
@@ -32,7 +32,7 @@ require('lazy').setup({
         dependencies = {
             { 'williamboman/mason.nvim', config = true },
             'williamboman/mason-lspconfig.nvim',
-            { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
+            { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
             'folke/neodev.nvim',
         },
     },
@@ -45,7 +45,14 @@ require('lazy').setup({
             'rafamadriz/friendly-snippets',
         },
     },
-    { 'folke/which-key.nvim', opts = {} },
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true
+        -- use opts = {} for passing setup options
+        -- this is equivalent to setup({}) function
+    },
+    { 'folke/which-key.nvim',  opts = {} },
     {
         'lewis6991/gitsigns.nvim',
         opts = {
@@ -57,20 +64,21 @@ require('lazy').setup({
                 changedelete = { text = '~' },
             },
             on_attach = function(bufnr)
-                vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk, { buffer = bufnr, desc = 'Preview git hunk' })
+                vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk,
+                    { buffer = bufnr, desc = 'Preview git hunk' })
 
                 -- don't override the built-in and fugitive keymaps
                 local gs = package.loaded.gitsigns
-                vim.keymap.set({'n', 'v'}, ']c', function()
+                vim.keymap.set({ 'n', 'v' }, ']c', function()
                     if vim.wo.diff then return ']c' end
                     vim.schedule(function() gs.next_hunk() end)
                     return '<Ignore>'
-                end, {expr=true, buffer = bufnr, desc = "Jump to next hunk"})
-                vim.keymap.set({'n', 'v'}, '[c', function()
+                end, { expr = true, buffer = bufnr, desc = "Jump to next hunk" })
+                vim.keymap.set({ 'n', 'v' }, '[c', function()
                     if vim.wo.diff then return '[c' end
                     vim.schedule(function() gs.prev_hunk() end)
                     return '<Ignore>'
-                end, {expr=true, buffer = bufnr, desc = "Jump to previous hunk"})
+                end, { expr = true, buffer = bufnr, desc = "Jump to previous hunk" })
             end,
         },
     },
@@ -85,7 +93,7 @@ require('lazy').setup({
         'rose-pine/neovim',
         as = 'rose-pine',
         config = function()
-                vim.cmd('colorscheme rose-pine')
+            vim.cmd('colorscheme rose-pine')
         end
     },
     {
@@ -102,7 +110,7 @@ require('lazy').setup({
 
     {
         'lukas-reineke/indent-blankline.nvim',
-        main='ibl',
+        main = 'ibl',
         opts = {
         },
     },
@@ -129,11 +137,18 @@ require('lazy').setup({
         build = ':TSUpdate',
     },
     {
-      "christoomey/vim-tmux-navigator",
-      lazy = false,
+        "christoomey/vim-tmux-navigator",
+        lazy = false,
     },
     {
         "nvim-neo-tree/neo-tree.nvim",
+        opts = {
+            filesystem = {
+                filtered_items = {
+                    visible = true,
+                },
+            },
+        },
         version = "*",
         dependencies = {
             "nvim-lua/plenary.nvim",
@@ -141,8 +156,16 @@ require('lazy').setup({
             "MunifTanjim/nui.nvim",
         },
     },
+    --     {
+    --         "jose-elias-alvarez/null-ls.nvim",
+    --         "nvimtools/none-ls.nvim"
+    --     },
     {
-        "jose-elias-alvarez/null-ls.nvim",
+        "stevearc/conform.nvim",
+        opts = {},
+    },
+    {
+        "mfussenegger/nvim-lint",
     },
     {
         "lervag/vimtex",
@@ -163,10 +186,10 @@ require('lazy').setup({
         'pocco81/true-zen.nvim',
     },
     {
-	'nvim-treesitter/playground'
+        'nvim-treesitter/playground'
     },
     {
-	'mbbill/undotree'
+        'mbbill/undotree'
     },
     {
         "David-Kunz/gen.nvim",
@@ -181,20 +204,20 @@ require('lazy').setup({
         "jmbuhr/otter.nvim",
     },
     {
-      "quarto-dev/quarto-nvim",
-      dependencies = {
-        "jmbuhr/otter.nvim",
-        "nvim-treesitter/nvim-treesitter",
-      },
-      ft = {"quarto", "markdown"},
+        "quarto-dev/quarto-nvim",
+        dependencies = {
+            "jmbuhr/otter.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        ft = { "quarto", "markdown" },
     },
     {
         '3rd/image.nvim',
         config = function()
-		require("image").setup()
-		package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua"
-		package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua"
-	end,
+            require("image").setup()
+            package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua"
+            package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua"
+        end,
     },
     {
         "GCBallesteros/jupytext.nvim",
@@ -212,25 +235,25 @@ require('lazy').setup({
         end,
     },
     {
-      "nvim-neorg/neorg",
-      dependencies = { "luarocks.nvim" },
-      lazy = false,
-      version = "*",
-      config = function ()
-        require("neorg").setup {
-          load = {
-            ["core.defaults"] = {},
-            ["core.concealer"] = {},
-            ["core.dirman"] = {
-              config = {
-                workspaces = {
-                  notes = "~/notes",
-                },
-                default_workspace = "notes",
-              },
-            },
-          }
-        }
-      end
+        "nvim-neorg/neorg",
+        dependencies = { "luarocks.nvim" },
+        lazy = false,
+        version = "*",
+        config = function()
+            require("neorg").setup {
+                load = {
+                    ["core.defaults"] = {},
+                    ["core.concealer"] = {},
+                    ["core.dirman"] = {
+                        config = {
+                            workspaces = {
+                                notes = "~/notes",
+                            },
+                            default_workspace = "notes",
+                        },
+                    },
+                }
+            }
+        end
     }
 })

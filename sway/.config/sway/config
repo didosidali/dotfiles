@@ -249,7 +249,7 @@ focus_follows_mouse yes
 
 
 exec swww-daemon
-exec swww img "Desktop-Backgrounds/1.jpg"
+exec swww img "Desktop-Backgrounds/2.jpg"
 
 exec swaync
 

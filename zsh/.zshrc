@@ -34,9 +34,9 @@ PROMPT="%F{red}%n%f%F{blue}@%f%F{green}%m%f %~ $ "
 RPROMPT=""
 
 alias vim="nvim"
-export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
+# export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 
-# source $HOME/pers.zsh
+alias icat="kitten icat"
 
 export ZSH="$HOME/.oh-my-zsh/" 
 
@@ -68,3 +68,11 @@ function vi-yank-xclip {
 
 zle -N vi-yank-xclip
 bindkey -M vicmd 'y' vi-yank-xclip
+
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
+source $HOME/.env
+
+# opencode
+export PATH=/home/sid/.opencode/bin:$PATH

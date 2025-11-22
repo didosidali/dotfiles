@@ -1,3 +1,5 @@
 set virtual_spoolfile=yes
 set nm_default_url="notmuch:///$HOME/.local/share/mail"
 source $HOME/.mailboxes
+set spoolfile="notmuch://?query=tag:inbox and date:..7d"
+set record="notmuch://?query=tag:sent"

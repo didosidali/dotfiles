@@ -65,12 +65,12 @@ local servers = {
       }
     },
   },
-  ltex={
-    filetypes={"bibtex", "context", "context.tex", "html", "latex", "markdown", "org", "restructuredtext", "rsweave", "email", "text", "mail", "tex"},
-    settings={
-      checkFrequency="save",
-      enabled={"bibtex", "context", "context.tex", "html", "latex", "markdown", "org", "restructuredtext", "rsweave", "email", "text", "mail", "tex"},
-      language="auto",
+  ltex = {
+    filetypes = { "bibtex", "context", "context.tex", "html", "latex", "markdown", "org", "restructuredtext", "rsweave", "email", "text", "mail", "tex" },
+    settings = {
+      checkFrequency = "save",
+      enabled = { "bibtex", "context", "context.tex", "html", "latex", "markdown", "org", "restructuredtext", "rsweave", "email", "text", "mail", "tex" },
+      language = "auto",
     }
   },
   zls = {},
@@ -96,20 +96,29 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
 
+for k, v in pairs(servers) do
+  vim.lsp.config(k, {
+    capabilities = capabilities,
+    settings = v,
+    on_attach = on_attach,
+    filetypes = (v or {}).filetypes,
+  })
+end
+
 mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
 }
 
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
-  end
-}
+-- mason_lspconfig.setup_handlers {
+--   function(server_name)
+--     require('lspconfig')[server_name].setup {
+--       capabilities = capabilities,
+--       on_attach = on_attach,
+--       settings = servers[server_name],
+--       filetypes = (servers[server_name] or {}).filetypes,
+--     }
+--   end
+-- }
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
